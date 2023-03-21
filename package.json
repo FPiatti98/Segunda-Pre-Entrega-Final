@@ -1,0 +1,24 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "proyecto backend CH en NodeJS.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "backend",
+    "nodeJS"
+  ],
+  "author": "fPiatti",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.7",
+    "moment": "^2.29.4",
+    "mongoose": "^7.0.1",
+    "mongoose-paginate-v2": "^1.7.1",
+    "socket.io": "^4.6.0"
+  }
+}
