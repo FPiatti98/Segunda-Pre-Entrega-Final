@@ -12,7 +12,8 @@
             <li>Estado: {{this.status}}</li>
             <li>Categoria: {{this.category}}</li>
         </ul>
-        <button id="addToCart" onclick="addProdToCart()">Agregar al Carrito</button>
+
+        <button id="addToCart" onclick="addProdToCart('{{this._id}}')">Agregar al Carrito</button>
     {{/each}}
 
     <div>
