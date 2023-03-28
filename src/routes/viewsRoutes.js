@@ -1,7 +1,7 @@
 import {response, Router} from 'express';
-import ProductManager from "../../dao/fylesystem/ProductManagerAsync.js";
-import { productModel } from '../../dao/mongodb/models/product.model.js';
-import { cartModel } from '../../dao/mongodb/models/cart.model.js';
+import ProductManager from "../dao/fylesystem/ProductManagerAsync.js";
+import { productModel } from '../dao/mongodb/models/product.model.js';
+import { cartModel } from '../dao/mongodb/models/cart.model.js';
 
 const router = Router();
 
@@ -40,6 +40,7 @@ router.get('/products', async (req, res) => {
         const sort = req.query.sort;
         const category = req.query.category;
         const stock = req.query.stock;
+        const usuario = req.session.user
 
         if ( !limit || !page ){
             limit = 10;
@@ -60,7 +61,7 @@ router.get('/products', async (req, res) => {
         Products.nextLink = Products.hasNextPage? `http://localhost:8080/products?page=${Products.nextPage}&limit=${Products.limit}`:'';
         Products.isValid= !(page<=0||page>Products.totalPages);
 
-        res.render('products', {products: Products});
+        res.render('products', {products: Products, user: usuario});
 
     } catch (error) {
         return res.status(500).send({status: "error", message : error.message});

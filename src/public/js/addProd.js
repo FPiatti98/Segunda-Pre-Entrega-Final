@@ -24,3 +24,15 @@ const addProdToCart = (id) => {
   });
   
 };
+
+const logOut = () => {
+  fetch(`http://localhost:8080/api/sessions/logout`, {
+    method: 'GET',
+    mode: "cors",
+  })
+  .then(result => {
+    if(result.status==200){
+      window.location.replace('/users/login')
+    }
+  });
+}
